@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/sujects")
+@RequestMapping("/api/v1/subjects")
 public class SubjectController {
 
     @Autowired
@@ -49,7 +49,7 @@ public class SubjectController {
     }
 
     @DeleteMapping("/delete/{uuid}")
-    public ResponseEntity<?> deleteCourse(@PathVariable String uuid){
+    public ResponseEntity<?> deleteSubject(@PathVariable String uuid){
         Response<Subjects> response =  subjectService.deleteSubject(uuid);
 
         return ResponseEntity.ok().body(response);

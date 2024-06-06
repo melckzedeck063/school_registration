@@ -1,9 +1,6 @@
 package com.example.school_registration.serviceImpl;
-
-import com.example.school_registration.dto.CourseDto;
 import com.example.school_registration.dto.SubjectDto;
 import com.example.school_registration.models.Courses;
-import com.example.school_registration.models.Department;
 import com.example.school_registration.models.Subjects;
 import com.example.school_registration.models.UserAccount;
 import com.example.school_registration.repositories.CoursesRepository;
@@ -146,7 +143,7 @@ public class SubjectServiceImpl implements SubjectService {
 
 
             Subjects subjects =  optionalSubjects.get();
-            coursesRepository.delete(subjects.getCourse());
+            subjectRepository.delete(subjects);
 
             return new Response<>(false,ResponseCode.SUCCESS,"subjects deleted successful");
         }
