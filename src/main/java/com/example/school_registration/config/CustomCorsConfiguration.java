@@ -1,4 +1,4 @@
-package com.example.smart_tourism.config;
+package com.example.school_registration.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,12 +7,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-
-/**
- * @author Banza Timoth
- *
- * @ May 5, 2022:7:33:59 PM
- */
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
