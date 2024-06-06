@@ -13,6 +13,8 @@ public interface DepartmentRepository extends JpaRepository<Department,Long> {
 
     Optional<Department> findFirstByDepartment(String department);
 
+    Optional<Department> findFirstByDeptCode(String code);
+
     Page<Department> findAllByDeletedFalseOrderByCreatedAtDesc(Pageable pageable);
 
 

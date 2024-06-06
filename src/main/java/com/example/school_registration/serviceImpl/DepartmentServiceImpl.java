@@ -43,9 +43,23 @@ public class DepartmentServiceImpl implements DepartmentService {
             if(departmentDto.getDepartment() == null){
                 return new Response<>(true,ResponseCode.NULL_ARGUMENT,"department name can nt be null");
             }
+            else {
+                Optional<Department> optionalDepartment =  departmentRepository.findFirstByDepartment(departmentDto.getDepartment());
+
+                if(optionalDepartment.isPresent()){
+                    return new Response<>(true,ResponseCode.DUPLICATE,"Department name already in use");
+                }
+            }
 
             if(departmentDto.getDeptCode() == null){
                 return new Response<>(true,ResponseCode.NULL_ARGUMENT,"department code can nt be null");
+            }
+            else {
+                Optional<Department> optionalDepartment =  departmentRepository.findFirstByDeptCode(departmentDto.getDeptCode());
+
+                if(optionalDepartment.isPresent()){
+                    return new Response<>(true,ResponseCode.DUPLICATE,"Department code already in use");
+                }
             }
 
             if(departmentDto.getHodUuid() != null){

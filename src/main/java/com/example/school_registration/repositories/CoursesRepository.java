@@ -13,5 +13,7 @@ public interface CoursesRepository extends JpaRepository<Courses,Long> {
 
     Optional<Courses> findFirstByCourseName(String course);
 
+    Optional<Courses> findFirstByCourseCode(String code);
+
     Page<Courses> findAllByDeletedFalseOrderByCreatedAtDesc(Pageable pageable);
 }

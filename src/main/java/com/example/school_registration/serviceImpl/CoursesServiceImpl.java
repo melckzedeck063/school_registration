@@ -43,9 +43,21 @@ public class CoursesServiceImpl implements CoursesService {
             if(courseDto.getCourseName() == null){
                 return new Response<>(true,ResponseCode.NULL_ARGUMENT,"course name can nt be null");
             }
+            else {
+                Optional<Courses> optionalCourses =  coursesRepository.findFirstByCourseName(courses.getCourseName());
+                if(optionalCourses.isPresent()){
+                    return  new Response<>(true,ResponseCode.DUPLICATE,"Course name already used");
+                }
+            }
 
             if(courseDto.getCourseCode() == null){
                 return new Response<>(true,ResponseCode.NULL_ARGUMENT,"course code can nt be null");
+            }
+            else {
+                Optional<Courses> optionalCourses =  coursesRepository.findFirstByCourseCode(courses.getCourseCode());
+                if(optionalCourses.isPresent()){
+                    return  new Response<>(true,ResponseCode.DUPLICATE,"Course code already used");
+                }
             }
 
             if(courseDto.getDepartmentUuid() != null){
